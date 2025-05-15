@@ -15,9 +15,9 @@ if not os.getenv("FAL_KEY"):
     raise EnvironmentError("La clé API FAL_KEY n'est pas définie dans le fichier .env")
 
 app = FastAPI(
-    title="ArtBot API",
-    description="API pour ArtBot - Votre assistant de création d'images IA",
-    version="1.0.0"
+    title="Imagina API",
+    description="API pour Imagina - L'Art de l'Imagination",
+    version="1.0.0",
 )
 
 # Configure CORS
@@ -35,13 +35,13 @@ class ImageRequest(BaseModel):
     image_size: str = Field(
         default="landscape_4_3",
         description="Format de l'image",
-        enum=["landscape_4_3", "portrait_3_4", "square_1_1"]
+        enum=["landscape_4_3", "portrait_3_4", "square_1_1"],
     )
     num_images: int = Field(
         default=1,
         ge=1,
         le=4,
-        description="Nombre d'images à générer (1-4)"
+        description="Nombre d'images à générer (1-4)",
     )
 
 class ImageData(BaseModel):
@@ -70,20 +70,22 @@ async def generate_image(request: ImageRequest):
                 "prompt": enhanced_prompt,
                 "seed": request.seed,
                 "image_size": request.image_size,
-                "num_images": request.num_images
+                "num_images": request.num_images,
             },
         )
 
         # Transformer la réponse en format attendu
         transformed_result = []
-        if isinstance(result, dict) and 'images' in result:
-            for image in result['images']:
-                transformed_result.append({
-                    'image': image['url'],
-                    'width': image.get('width', 0),
-                    'height': image.get('height', 0),
-                    'content_type': image.get('content_type', 'image/jpeg')
-                })
+        if isinstance(result, dict) and "images" in result:
+            for image in result["images"]:
+                transformed_result.append(
+                    {
+                        "image": image["url"],
+                        "width": image.get("width", 0),
+                        "height": image.get("height", 0),
+                        "content_type": image.get("content_type", "image/jpeg"),
+                    }
+                )
         
         generation_time = time.time() - start_time
         
@@ -91,15 +93,15 @@ async def generate_image(request: ImageRequest):
             "status": "success",
             "result": transformed_result,
             "generation_time": round(generation_time, 2),
-            "prompt": enhanced_prompt
+            "prompt": enhanced_prompt,
         }
     except Exception as e:
         raise HTTPException(
             status_code=500,
             detail={
                 "message": "Erreur lors de la génération de l'image",
-                "error": str(e)
-            }
+                "error": str(e),
+            },
         )
 
 @app.get("/health")
@@ -108,5 +110,5 @@ async def health_check():
     return {
         "status": "healthy",
         "timestamp": time.time(),
-        "service": "ArtBot API"
+        "service": "Imagina API",
     } 
