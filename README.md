@@ -15,7 +15,7 @@ Imagina est une application web élégante qui transforme vos descriptions textu
 - Frontend: Streamlit
 - Backend: FastAPI
 - IA: fal.ai
-- CI/CD: GitHub Actions
+- CI: GitHub Actions (linting et formatage)
 
 ## 📦 Installation
 
@@ -49,28 +49,19 @@ cd frontend
 python -m streamlit run app.py
 ```
 
-## 🌐 Déploiement
-
-L'application se déploie automatiquement sur Streamlit Cloud à chaque push sur la branche main.
-
-### Configuration
-
-1. Créez un compte sur [Streamlit Cloud](https://streamlit.io/cloud)
-
-2. Configurez les secrets GitHub :
-   - `STREAMLIT_CREDENTIALS` : Identifiants Streamlit Cloud
-   - `FAL_KEY` : Clé API fal.ai
-
-3. Le déploiement s'effectue automatiquement via GitHub Actions
-
 ## 💡 Guide d'utilisation
 
-1. Accédez à l'application :
-   - En production : via l'URL Streamlit Cloud
-   - En local : `http://localhost:8501`
+1. Accédez à l'application en local : `http://localhost:8501`
 2. Décrivez l'image souhaitée
 3. Personnalisez les paramètres
 4. Cliquez sur "Créer"
+
+## 🔍 Qualité du Code
+
+Le projet utilise GitHub Actions pour maintenir la qualité du code :
+- Vérification de la syntaxe avec flake8
+- Formatage du code avec black
+- Tests automatiques à chaque push
 
 ## 🤝 Contribution
 
