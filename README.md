@@ -1,5 +1,9 @@
 # Imagina - L'Art de l'Imagination
 
+<div align="center">
+  <img src="demo/Imagina.gif" alt="Démonstration Imagina" width="800"/>
+</div>
+
 Imagina est une application web élégante qui transforme vos descriptions textuelles en œuvres d'art grâce à l'intelligence artificielle. Une interface épurée et intuitive qui donne vie à vos idées.
 
 ## ✨ Caractéristiques
