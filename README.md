@@ -27,15 +27,7 @@ Imagina est une application élégante qui transforme vos descriptions textuelle
     - Décodage via auto-encodeur optimisé
     - Post-traitement pour amélioration de la qualité
 
-### Backend (FastAPI):
-- **Framework**: FastAPI
-  - ASGI server: Uvicorn pour haute performance
-  - Validation des données: Pydantic v2
-  - CORS middleware pour sécurité
-  - Gestion asynchrone des requêtes
-  - Intégration avec fal.ai pour l'inférence
-  - Gestion des erreurs robuste
-  - Cache optimisé pour les résultats
+
 
 ### Frontend (Streamlit):
 - **Framework**: Streamlit
