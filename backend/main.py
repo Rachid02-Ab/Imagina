@@ -9,7 +9,7 @@ import time
 
 # Load environment variables
 load_dotenv()
-
+###FAL_KEYS
 # Vérifier la présence de la clé API
 if not os.getenv("FAL_KEY"):
     raise EnvironmentError("La clé API FAL_KEY n'est pas définie dans le fichier .env")
